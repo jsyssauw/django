@@ -1,0 +1,66 @@
+<!-- step 13b including the navbar.html in the template
+{ include 'navbar.html' } -->
+
+<!-- step 15: add the extends main.html & block content open and close tags-->
+
+{% extends 'main.html' %}
+
+{% block content %}
+
+<h1>Project: {{project.title}}</h1>
+<style>
+    table {
+        border-collapse: collapse; /* Ensures borders are merged */
+        width: 50%;
+    }
+    th, td {
+        border: 1px solid rgb(45, 36, 128);
+        padding: 3px; /* Adds space inside each cell */
+        text-align: center;
+    }
+</style>
+<table>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Source</th>
+    <th>Tags</th>
+    <th>Total Votes</th>
+    <th>Vote Score</th>
+    <th>Created</th>
+    <th>Demo Link</th>
+    <tr>
+        <td>{{project.id}}</td>
+        <td>{{project.title}}</td>
+        <td>{{project.description}}</td>
+        <td>{{project.source_link}}</td>
+        <td width="100" style="text-align: left;">
+            {% for tag in project.tags.all %}
+            <li>{{tag}}</li>
+            {% endfor %}
+
+        </td>
+        <td>{{project.vote_total}}</td>
+        <td>{{project.vote_ratio}}</td>
+        <td>{{project.created}}</td>
+        <td>{{project.demo_link}}</td>
+    </tr>
+
+</table>
+
+<hr>
+<h1>Single Project Template</h1>
+
+<p>A Python programmer, eager to learn Django, decides to dive in headfirst.<br>
+    He installs Django, starts a new project, and proudly writes his first view. Excited, he runs the server and opens his browser—500 Internal Server Error.<br>
+    "No problem,” he mutters, checking the error message. Something about migrations.<br>    
+    “Alright, I’ll just run makemigrations and migrate.”<br>    
+    Boom. Another error.<br>    
+    Frustrated, he Googles for answers and finds a Stack Overflow post from 2012 with 500 upvotes. He tries the suggested command:<br>
+    bash -     Copy -     Edit<br>
+    python manage.py shell <some_command_he_doesn’t_understand><br>
+    Magically, the error disappears. Triumphant, he refreshes the browser—another error.<br>
+    At this point, he sighs, looks at his coffee, and mumbles, "Django? More like Jenga, because one wrong move and everything collapses."<br>
+    And thus, he truly begins his journey as a Django developer. 😆</p>
+
+{% endblock content %}

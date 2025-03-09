@@ -1,0 +1,1 @@
+step 16. create in je projects folder (or what ever you app is called) a folder called templates. and in the templates folder, create again a folder called projects (or whatever your app is called)
