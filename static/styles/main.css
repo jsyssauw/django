@@ -1,0 +1,125 @@
+h1{
+    color: red
+}
+
+
+/* Futuristic CSS Schema for Django HTML Application */
+/*
+body {
+    background-color: #0a0f1b;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 20px;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #6ce1ff;
+    text-shadow: 0 0 5px #40cfff;
+}
+
+a {
+    color: #00c6ff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #57c7ff;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+    background-color: #162034;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+th {
+    background-color: #14203a;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+tr:hover {
+    background-color: rgba(255,255,255,0.05);
+}
+
+button, input[type="submit"] {
+    background-color: #14203a;
+    border: none;
+    color: #ffffff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 136, 255, 0.3);
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: #1a7eff;
+    box-shadow: 0 0 20px rgba(87, 199, 255, 0.5);
+}
+
+input[type=text], textarea, select {
+    background-color: #16233e;
+    border: none;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+}
+
+input[type="file"] {
+    color: #fff;
+}
+
+textarea {
+    resize: vertical;
+}
+
+img {
+    border-radius: 10px;
+    max-width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    margin-bottom: 15px;
+}
+
+.footer, .header {
+    text-align: center;
+    padding: 15px;
+    color: rgba(255,255,255,0.7);
+}
+
+/* Scrollbar style for futuristic appearance */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0a0f1b;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #0088ff;
+    border-radius: 5px;
+}
+
+/* Modern form fields */
+input, select, textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    outline: none;
+}
+
+input:focus, select:focus, textarea:focus {
+    box-shadow: 0 0 10px rgba(0, 136, 255, 0.6);
+} */

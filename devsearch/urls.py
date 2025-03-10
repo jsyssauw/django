@@ -18,6 +18,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django.conf import settings                ## step 61 : configuring the media url
+from django.conf.urls.static import static
+
 # def homePage(request):
 #     return HttpResponse("Hello World")
 
@@ -26,3 +29,6 @@ urlpatterns = [
     path('',include('projects.urls'))
     # path("", homePage)
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)  ## step 61 : configuring the media url
+urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)  ## step 65 : configuring the static url in urls.py

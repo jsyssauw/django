@@ -65,7 +65,8 @@ def createProject(request):             # step 42 - create the view
     form = ProjectForm()
     if request.method == 'POST':                            # action 49: let's process the post (note that action="" is in the form itself so redirecting to the same project)
         # print(request.POST)
-        form = ProjectForm(request.POST)                    # is.valid validates if all the mandatory fields are filled or not ... other checks
+        form = ProjectForm(request.POST, request.FILES)     # is.valid validates if all the mandatory fields are filled or not ... other checks
+                                                            # ACTION 64a: add the files to be part of the form by adding request.FILES
         if form.is_valid():                                 # form.save() --> puts it in the database
             form.save()
             return redirect ('projects')
@@ -81,7 +82,7 @@ def updateProject(request,pk):             # step 49 create update
 
     if request.method == 'POST':                            
         # print(request.POST)
-        form = ProjectForm(request.POST, instance = project)                    
+        form = ProjectForm(request.POST, request.FILES, instance = project)       # ACTION 64b: add the files to be part of the form by adding request.FILES              
         if form.is_valid():                                 
             form.save()
             return redirect ('projects')

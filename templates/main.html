@@ -1,10 +1,18 @@
 <!DOCTYPE html>
+{% load static %}         <!--action 55 implement the main.css in the main.html and add the load static-->
 <html lang="en">
     <html></html><!-- step 14 create this file-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DevSearch</title>
+    <link 
+        rel='stylesheet' 
+        type='text/css' 
+        media='screen' 
+        href='{% static "styles/main.css" %}'>  
+        <!--action 55 implement the main.css in the main.html and add the load static-->
+    <!--script src='main.js'></!--script>-->
 </head>
 <body>
     {% include 'navbar.html' %}

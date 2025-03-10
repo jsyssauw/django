@@ -7,6 +7,7 @@ class Project(models.Model):
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)       # null = True - description can be null
                                                                 # blank = True - we can submit a form that is null
+    featured_image = models.ImageField(null=True, blank=True, default="default.jpg")   ## step 57: add the picture to the model
     demo_link = models.CharField(max_length=2000, null=True, blank=True)
     source_link = models.CharField(max_length=2000, null=True, blank=True)
     tags = models.ManyToManyField('Tag', blank=True)             # because the tag definition is below add '' around tag, or remove the '' and move the tag class above

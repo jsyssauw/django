@@ -4,7 +4,7 @@
 
 <h1>Project Form</h1>
 
-<form action="" method="POST" >
+<form action="" method="POST" enctype = "multipart/form-data">     <!-- STEP 63: enable the form to upload files-->
     {% csrf_token %}
 
     {{form.as_p}}             <!-- action 46 add the form to the project_form-->

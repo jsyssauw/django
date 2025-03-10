@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-#jz_wrsdpuyyaob6&n6vhgzh-h7_ol!nvf&&wjx@-9r+mbglj-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost','127.0.0.1','yourwebsite.com']             ## STEP 65 - set the allowed-hosts when the DEBUG parameter = False in settings.py
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",                   ## STEP 65, add to the middleware section in settings.py
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
@@ -119,8 +120,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
+MEDIA_URL = "/images/"              ## step 60 add the media_url
 
+
+STATICFILES_DIRS = [                ## step 54 link the static files to the project
+    BASE_DIR / 'static'
+]
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images') ## step 58: where to upload user generated content
+STATIC_ROOT = os.path.join(BASE_DIR,'staticproductionfiles')  ## STEP 65: adding STATIC_ROOT to make sure that our static files work when DEBUG = False (ie production)
+
+## 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
