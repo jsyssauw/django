@@ -26,7 +26,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',include('projects.urls'))
+    path('projects/',include('projects.urls')),
+    path('',include('users.urls'))        # step 81: every url call that starts with root/users goes to the users app.urls 
+                                          # step 82: swith the path for projects and users to make users the default
     # path("", homePage)
 ]
 

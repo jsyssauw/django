@@ -1,9 +1,10 @@
 from django.db import models
 import uuid
-
+from users.models import Profile #step 83:
 # Create your models here.
 
 class Project(models.Model):
+    owner =models.ForeignKey(Profile,null=True, blank=True, on_delete=models.SET_NULL)  #step 83.6: add the owner to the model, on delete don't delete the project
     title = models.CharField(max_length=200)
     description = models.TextField(null=True, blank=True)       # null = True - description can be null
                                                                 # blank = True - we can submit a form that is null

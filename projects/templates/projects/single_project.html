@@ -7,62 +7,90 @@
 
 {% block content %}
 
-<img style="max-width: 500px" src="{{project.featured_image.url}}">      <!--step 59 add the image to the single project template  -->
+<!-- Main Section -->
+<main class="singleProject my-md">
+    <div class="container">
+      <div class="layout">
+        <div class="column column--1of3">
+          <h3 class="singleProject__subtitle">Tools & Stacks</h3>
+          <div class="singleProject__toolStack">
+              {% for tag in project.tags.all %}
+                <span class="tag tag--pill tag--sub tag--lg">
+                  <small>{{tag}}</small>
+                </span>
+              {% endfor %}
+          </div>
+          {% if project.source_link %}
+            <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Source Code
+            </a>
+          {% endif %}   
 
-<h1>Project: {{project.title}}</h1>
-<style>
-    table {
-        border-collapse: collapse; /* Ensures borders are merged */
-        width: 50%;
-    }
-    th, td {
-        border: 1px solid rgb(23, 21, 43);
-        padding: 3px; /* Adds space inside each cell */
-        text-align: center;
-    }
-</style>
-<table>
-    <th>ID</th>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Source</th>
-    <th>Tags</th>
-    <th>Total Votes</th>
-    <th>Vote Score</th>
-    <th>Created</th>
-    <th>Demo Link</th>
-    <tr>
-        <td>{{project.id}}</td>
-        <td>{{project.title}}</td>
-        <td>{{project.description}}</td>
-        <td>{{project.source_link}}</td>
-        <td width="100" style="text-align: left;">
-            {% for tag in project.tags.all %}
-            <li>{{tag}}</li>
-            {% endfor %}
+          {% if project.demo_link %}
+            <a class="singleProject__liveLink" href="#" target="_blank"><i class="im im-external-link"></i>Demo Link
+            </a>
+          {% endif %}   
+        </div>
+        <div class="column column--2of3">
+          <img class="singleProject__preview" src="{{project.featured_image.url}}" alt="portfolio thumbnail" />
 
-        </td>
-        <td>{{project.vote_total}}</td>
-        <td>{{project.vote_ratio}}</td>
-        <td>{{project.created}}</td>
-        <td>{{project.demo_link}}</td>
-    </tr>
+          <a href="profile.html" class="singleProject__developer">Owner: {{project.owner.name}}</a>     
+          <div class="singleProject__info">Product ID: #{{project.id}}
+            </div>
+          <div class="singleProject__info">Created On: {{project.created}}
+            </div>          
+          <h2 class="singleProject__title">{{project.title}}</h2>
+          <h3 class="singleProject__subtitle">About the Project</h3>
+          <div class="singleProject__info">{{project.description}}
+          </div>
 
-</table>
+          <div class="comments">
+            <h3 class="singleProject__subtitle">Feedback</h3>
+            <h5 class="project--rating">
+              {{project.vote_total}} Postitive Feedback ({{project.vote_total}} Vote{{project.vote_total|pluralize:"s"}})
+            </h5>
 
-<hr>
-<h1>Single Project Template</h1>
-
-<p>A Python programmer, eager to learn Django, decides to dive in headfirst.<br>
-    He installs Django, starts a new project, and proudly writes his first view. Excited, he runs the server and opens his browser—500 Internal Server Error.<br>
-    "No problem,” he mutters, checking the error message. Something about migrations.<br>    
-    “Alright, I’ll just run makemigrations and migrate.”<br>    
-    Boom. Another error.<br>    
-    Frustrated, he Googles for answers and finds a Stack Overflow post from 2012 with 500 upvotes. He tries the suggested command:<br>
-    bash -     Copy -     Edit<br>
-    python manage.py shell <some_command_he_doesn’t_understand><br>
-    Magically, the error disappears. Triumphant, he refreshes the browser—another error.<br>
-    At this point, he sighs, looks at his coffee, and mumbles, "Django? More like Jenga, because one wrong move and everything collapses."<br>
-    And thus, he truly begins his journey as a Django developer. 😆</p>
+            <form class="form" action="#" method="POST">
+              <!-- Textarea -->
+              <div class="form__field">
+                <label for="formInput#textarea">Comments: </label>
+                <textarea class="input input--textarea" name="message" id="formInput#textarea"
+                  placeholder="Write your comments here..."></textarea>
+              </div>
+              <input class="btn btn--sub btn--lg" type="submit" value="Comments" />
+            </form>
+            <div class="commentList">
+              <div class="comment">
+                <a href="profile.html">
+                  <img class="avatar avatar--md"
+                    src="https://pbs.twimg.com/profile_images/1335382240931368961/b3wSZKj4_400x400.jpg" alt="user" />
+                </a>
+                <div class="comment__details">
+                  <a href="profile.html" class="comment__author">Sulamita Ivanov</a>
+                  <p class="comment__info">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit alias numquam perferendis
+                    mollitia minus minima exercitationem possimus ab deserunt qui, soluta iusto doloribus eveniet
+                    similique consequuntur ratione, dignissimos ut magni laborum quo.
+                  </p>
+                </div>
+              </div>
+              <div class="comment">
+                <a href="profile.html">
+                  <img class="avatar avatar--md" src="https://avatars.githubusercontent.com/u/33843378" alt="user" />
+                </a>
+                <div class="comment__details">
+                  <a href="profile.html" class="comment__author">Dennis Ivanov</a>
+                  <p class="comment__info">
+                    Consectetur adipisicing elit. Reprehenderit alias numquam perferendis mollitia minus minima
+                    exercitationem possimus ab deserunt qui, ratione, dignissimos ut magni laborum quo.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </main>
 
 {% endblock content %}

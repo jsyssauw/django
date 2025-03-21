@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "projects.apps.ProjectsConfig"
+    "projects.apps.ProjectsConfig",
+    "users.apps.UsersConfig"                                        ## step 80, register the new users app
 ]
 
 MIDDLEWARE = [

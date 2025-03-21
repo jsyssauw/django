@@ -1,8 +1,38 @@
 
 {% load static %}
 
-<img src="{% static 'images/logo.svg' %}">
+<!-- Header Section -->  
+<!-- step 72 
+ 0. add the header section in navbar.html 
+ 1. add url to click on the icon to go to homepage, als add static to img source
+ 2. add url to create project (duplicated row from button) 
+ 3. add url to projects menu item-->
+<header class="header">
+    <div class="container container--narrow">
+      <a href="{% url 'profiles' %}" class="header__logo">    <!--step 82 to link logo to profiles-->
+        <img src="{% static 'images/logo.svg' %}" alt="DevSearch Logo" />
+      </a>
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <label for="responsive-menu" class="toggle-menu">
+          <span>Menu</span>
+          <div class="toggle-menu__lines"></div>
+        </label>
+        <ul class="header__menu">
+          <li class="header__menuItem"><a href="{% url 'profiles' %}">Profiles</a></li>         <!-- Step 82. add profiles url to navbar -->
+          <li class="header__menuItem"><a href="{% url 'projects' %}">Projects</a></li>
+          <li class="header__menuItem"><a href="inbox.html">Inbox</a></li>
+          <li class="header__menuItem"><a href="account.html">My Account</a></li>
+          <li class="header__menuItem"><a href="{% url 'create-project' %}" class="btn btn--sub">Add Project</a></li>
+          <li class="header__menuItem"><a href="login.html" class="btn btn--sub">Login/Sign Up</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+<!-- <img src="{% static 'images/logo.svg' %}"> -->
 <!-- step 12: in the devsearch > templates: create a file called-->
- <br>
- <a href="{% url 'create-project' %}">Add Project</a>       <!-- step 44 add projects to navbar.html template-->
- <hr>
+ <!-- step 56-->
+ <!-- <br>
+ <a href="{% url 'create-project' %}">Add Project</a> -->      <!-- step 44 add projects to navbar.html template-->
+ <!-- <hr> --> 
